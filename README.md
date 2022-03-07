@@ -5,13 +5,13 @@ This is done using tasks, each of which consists of a call to the recursive sear
 
 ## Compilation
 The program is compiled with the following command:
-gcc nqueens.c -o nqueens -Wall -fopenmp
+  gcc nqueens.c -o nqueens -Wall -fopenmp
 where the fopenmp-flag is necessary for the program to run in parallel.
 
 ## Running the program
 The program takes the dimension of the problem as a command-line argument.
 As an example, to find the number of solutions to the 8-queen problem, the following command
 can be run after the program has been compiled:
-./nqueens 8
+  ./nqueens 8
 
 The number of solutions is then written to stdout.
