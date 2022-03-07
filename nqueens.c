@@ -122,6 +122,11 @@ bool is_valid_pos(int row, int col, int dim, unsigned char **board)
     return false;
 }
 
+/*
+    
+
+
+*/
 bool recursive_func(int col, int row, unsigned char **board, int dim, int *sol_count)
 {
     if (col == dim)
@@ -150,6 +155,14 @@ bool recursive_func(int col, int row, unsigned char **board, int dim, int *sol_c
     return false;
 }
 
+/*
+    Prints the pieces placed on the given board.
+    Queens are represented by a 'q', vacant positions
+    by an empty space.
+    @board: the board to print
+    @dim: the dimension of the given board (dim x dim)
+
+*/
 void print_board(unsigned char **board, int dim)
 {
     bool found_nonzero = false;
@@ -160,14 +173,14 @@ void print_board(unsigned char **board, int dim)
             if (board[row][col] != 0)
             {
                 found_nonzero = true;
-                printf("|q|");
+                printf("|q");
             }
             else
             {
-                printf("| |");
+                printf("| ");
             }
         }
-        printf("\n");
+        printf("|\n");
     }
     if (!found_nonzero)
     {
@@ -175,6 +188,14 @@ void print_board(unsigned char **board, int dim)
     }
 }
 
+
+/*
+    Copy the contents of a given board into a separate
+    memory location.
+    @old_board: The board to copy.
+    @dim: The dimension of both the original and copy boards (dim x dim).
+
+*/
 unsigned char **copy_board(unsigned char **old_board, int dim)
 {
     unsigned char **new_board = malloc(sizeof(*new_board) * dim);
@@ -187,6 +208,11 @@ unsigned char **copy_board(unsigned char **old_board, int dim)
     return new_board;
 }
 
+/*
+    Deallocate all memory used by a given board.
+    @board: board of chars to deallocate
+    @dim: the dimension of the board (dim x dim) 
+*/
 void kill_board(unsigned char **board, int dim)
 {
     for (int row = 0; row < dim; row++)
